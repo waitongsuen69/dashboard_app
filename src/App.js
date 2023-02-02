@@ -1,10 +1,73 @@
-import React from 'react'
-
+import React,{ useEffect } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { FiSettings } from 'react-icons/fi';
+import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 import './App.css'
 
 const App = () => {
+  const activeMenu = true
+;
   return (
-    <h1 className = "underline" >App</h1>
+    <div> 
+      <BrowserRouter>
+        <div className="flex relative dark:bg-main-dark-bg">
+          
+          <div className = "fixed right-4 bottom-4" style = {{ zIndex:'1000'}}>
+            <TooltipComponent content = "Settings" position = "Top">
+              <button type = "button" className = "text-3xl p-3 hover:bg-light-grey text-white " style={{ backgroundColor:'gray', borderRadius:'50%' }}>
+                <FiSettings />
+              </button>
+            </TooltipComponent>
+          </div>
+
+          {activeMenu ? (
+            <div className = "w-72 fixed sidebar dark:bg-secondary-dark-bg bg-white ">
+              Sidebar true
+            </div>
+          ) : (
+            <div className = "w-0 dark:dg-secondary-dark-bg">
+              Sidebar false
+            </div>
+          )}
+
+          <div className = {
+            `dark:bg-main-bg min-h-screen w-full $(activeMenu ? 'md:ml-72'
+            : 'flex-2')`
+          }> 
+            <div className = "fixed md:static bg-main-bg dark:bg-main-bg-black navbar w-full">
+              Navbar
+            </div>
+          </div>
+
+          <div>
+            <Routes>
+              {/* dashboard */}
+              <Route path="/" element="ECommerce" />
+              <Route path="/ecommerce" element="ECommerce" />
+
+              {/* page */}
+              <Route path="/orders" element="Orders" />
+              <Route path="/employees" element="Employees" />
+              <Route path="/customers" element="Customers" />
+
+              {/*app*/}
+              <Route path="/" element="" />
+              <Route path="/kanban" element="Kanban" />
+              <Route path="/editors" element="Editors" />
+              <Route path="/calendar" element="Calendar" />
+              <Route path="/color-picker" element="ColorPicker" />
+
+              {/* graphs */}
+              <Route path="/line" element="Line" />
+              <Route path="/pie" element="Pie" />
+              <Route path="/financial" element="Financial" />
+              
+            </Routes>
+          </div>
+
+        </div>
+      </BrowserRouter> 
+    </div>
   )
 }
 
