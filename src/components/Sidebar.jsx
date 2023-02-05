@@ -1,15 +1,17 @@
-import React from 'react'
-import {Link , NavLink } from 'react-router-dom'
-import { RiMotorbikeFill } from 'react-icons/ri'
+import React from 'react';
+import {Link , NavLink } from 'react-router-dom';
+import { RiMotorbikeFill } from 'react-icons/ri';
 import { MdOutlineCancel } from 'react-icons/md';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
-import { links } from '../data/dummy'
+import { links } from '../data/dummy';
+
+
 
 const Sidebar = () => {
   const CallMenu = true;
 
   const ActiveMenu = 'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-white text-md m-2';
-  const NormalMenu = 'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-white text-md text-gray-700 dark:text-gray-200 dark:hover:text-black hover:bg-light-gray m-2';
+  const NormalMenu = 'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-md text-gray-700 dark:text-gray-200 dark:hover:text-black hover:bg-light-gray m-2';
 
   return (
     <div className='ml-10 h-screen
@@ -26,7 +28,7 @@ const Sidebar = () => {
           </Link>
 
           <TooltipComponent content="Close Menu" position="BottomCenter" >
-            <button type="button"  className = "text-xl rounded-full p-3 hover:bg-light-gray mt-4 block md:hidden">
+            <button type="button" onClick = {() => {}} className = "text-xl rounded-full p-3 hover:bg-light-gray mt-4 block md:hidden">
 
             {/* onClick = {() => ()} */}
               <MdOutlineCancel />
@@ -44,13 +46,11 @@ const Sidebar = () => {
               <NavLink 
                 to={`/${link.name}`}
                 key = {link.name}
-                onClick={({ isActive }) => isActive ? ActiveMenu:NormalMenu}
+                onClick={({ CallMenu }) => CallMenu ? ActiveMenu:NormalMenu}
               >
                 {link.icon}
                 
-                <span className="capitalize ">
-                  {link.name}
-                </span>
+                <span className="capitalize ">{link.name}</span>
               </NavLink>
             ))}
               

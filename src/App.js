@@ -8,8 +8,7 @@ import { Navbar, Footer, Sidebar, ThemeSetting } from './components';
 import { Calendar, ColorPicker, Customers, Ecommerce, Editor, Employees, Kanban, Orders, Financial, Line, Pie, Stacked } from './pages';
 
 const App = () => {
-  const activeMenu = true
-;
+  const activeMenu = true;
   return (
     <div> 
       <BrowserRouter>
