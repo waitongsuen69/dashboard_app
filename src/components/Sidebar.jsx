@@ -29,8 +29,6 @@ const Sidebar = () => {
 
           <TooltipComponent content="Close Menu" position="BottomCenter" >
             <button type="button" onClick = {() => {}} className = "text-xl rounded-full p-3 hover:bg-light-gray mt-4 block md:hidden">
-
-            {/* onClick = {() => ()} */}
               <MdOutlineCancel />
             </button>
           </TooltipComponent> 
@@ -49,8 +47,9 @@ const Sidebar = () => {
                 onClick={({ CallMenu }) => CallMenu ? ActiveMenu:NormalMenu}
               >
                 {link.icon}
-                
-                <span className="capitalize ">{link.name}</span>
+                  <span className="capitalize">
+                    {link.name}
+                  </span>
               </NavLink>
             ))}
               
