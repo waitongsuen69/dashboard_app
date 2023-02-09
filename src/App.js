@@ -12,13 +12,20 @@ const App = () => {
   const {activeMenu } = useStateContext();
   // const activeMenu = true;
   return (
+
     <div> 
       <BrowserRouter>
         <div className="flex relative dark:bg-main-dark-bg">
-          
           <div className = "fixed right-4 bottom-4" style = {{ zIndex:'1000'}}>
-            <TooltipComponent content = "Settings" position = "Top">
-              <button type = "button" className = "text-3xl p-3 hover:bg-light-grey text-white " style={{ backgroundColor:'gray', borderRadius:'50%' }}>
+            <TooltipComponent 
+              content = "Settings" 
+              position = "Top"
+            >
+              <button 
+                type = "button" 
+                className = "text-3xl p-3 hover:drop-shadow-xl text-white hover:bg-light-gray" 
+                style={{ backgroundColor:'gray', borderRadius:'50%' }}
+              >
                 <FiSettings />
               </button>
             </TooltipComponent>
@@ -34,15 +41,22 @@ const App = () => {
             </div>
           )}
 
-          <div className = {
+          {/* <div className = {
             `dark:bg-main-bg min-h-screen w-full $(activeMenu ? 'md:ml-72'
             : 'flex-2')`
-          }> 
+          }>  */}
+          <div
+            className={
+              activeMenu
+                ? 'bg-main-bg dark:bg-main-dark-bg min-h-screen w-full md:ml-72'
+                : 'bg-main-bg dark:bg-main-dark-bg min-h-screen w-full flex-2'
+            }
+          >
             <div className = "fixed md:static bg-main-bg dark:bg-main-bg-black navbar w-full">
               <Navbar />
             </div>
           </div>
-
+         
           <div>
             <Routes>
               {/* dashboard */}
@@ -67,12 +81,13 @@ const App = () => {
               <Route path="/financial" element={<Financial />} />
               
             </Routes>
-           </div>
-
+          </div>
+          
+          {/* </div>  */}
         </div>
       </BrowserRouter> 
     </div>
-  )
-}
+  );
+};
 
 export default App 
