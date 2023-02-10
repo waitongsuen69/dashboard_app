@@ -11,13 +11,13 @@ import { useStateContext } from '../contexts/contextProvider';
 
 const Sidebar = () => {
   // const activeMenu = true;
-  const { activeMenu, setActiveMenu,currentColor,screenSize } = useStateContext();
+  const { activeMenu, setActiveMenu, currentColor, screenSize } = useStateContext();
 
-  // const handleCloseSideBar = () => {
-  //   if (activeMenu !== undefined && screenSize <= 900) {
-  //     setActiveMenu(false);
-  //   }
-  // };
+  const handleCloseSideBar = () => {
+    if (activeMenu !== undefined && screenSize <= 900) {
+      setActiveMenu(false);
+    } 
+  };
 
   const ActiveMenu = 'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-white text-md m-2';
   const NormalMenu = 'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-md text-gray-700 dark:text-gray-200 dark:hover:text-black hover:bg-light-gray m-2';
@@ -29,7 +29,7 @@ const Sidebar = () => {
         <>
         <div className='flex justify-between items-center'>
           <Link to="/" 
-          onClick = {() =>setActiveMenu(false )} 
+          onClick = {() =>handleCloseSideBar} 
           className= "items-center gap-3 ml-3 mt-4 flex text-xl font-extrabold tracking-tight dark:text-white text-slate-900">
             <RiMotorbikeFill /> <span> WAITON_SHOP</span>
           </Link>
@@ -53,12 +53,7 @@ const Sidebar = () => {
                 to={`/${link.name}`}
                 key={link.name}
                 className={({ CallMenu }) => CallMenu ? ActiveMenu : NormalMenu }
-                
-                // onClick={handleCloseSideBar}
-                //     style={({ isActive }) => ({
-                //       backgroundColor: isActive ? currentColor : '',
-                //     })}
-                //     className={({ isActive }) => (isActive ? ActiveMenu : NormalMenu)}
+                onClick={handleCloseSideBar}
               >
                  {link.icon}
                 <span className="capitalize ">{link.name}</span>

@@ -9,7 +9,7 @@ import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 
 import { useStateContext } from '../contexts/contextProvider';
 import avatar from '../data/avatar.jpg';
-import{Cart, Chat, Notification, UserProfile } from '.';
+import{Cart, Chat, Notice, Notification, UserProfile } from '.';
 
 const NavButton = ( {title, customFunc, icon, color, dotColor } )=>(
   <TooltipComponent 
@@ -22,16 +22,31 @@ const NavButton = ( {title, customFunc, icon, color, dotColor } )=>(
     >
       <span style={{backgroud: dotColor}}
         className='absolute inline-flex rounded-full h-2 w-2 right-2 top-2'
-      >
-        {icon}
-      </span>
-
+      />
+      {icon}
     </button>
   </TooltipComponent>
 )
 
 const Navbar = () => {
-  const {activeMenu, setActiveMenu, handleClick} = useStateContext();
+  const {activeMenu, setActiveMenu, isClicked, setIsClicked, handleClick, screenSize, setScreenSize} = useStateContext();
+
+  useEffect(() => {
+    const handleResize = () => setScreenSize(window.innerWidth );
+    window.addEventListener( 'resize', handleResize );
+    handleResize();
+
+    return () => window.removeEventListener( 'resize',handleResize);
+     
+  },[]);
+
+  useEffect( () => {
+    if(screenSize <= 900){
+      setActiveMenu(false);
+    }else{
+      setActiveMenu(true);
+    }
+  },[screenSize]);
 
 
 
@@ -79,11 +94,15 @@ const Navbar = () => {
               <span className='text-gray-400 text-14 ml-1 font-bold'>User</span>
             </p>
             <MdKeyboardArrowDown />
-            
+
           </div>
 
         </TooltipComponent>
         
+        {isClicked.cart && <Cart />}
+        {isClicked.chat && <Chat />}
+        {isClicked.notification && <Notice />}
+        {isClicked.userProfile && <UserProfile />}
       </div> 
     </div>
   )
