@@ -1,4 +1,4 @@
-export {default as button} from './Button';
+export {default as Button} from './Button';
 export {default as Cart} from './Cart';
 export {default as Chat} from './Chat';
 export {default as Footer} from './Footer';
@@ -13,5 +13,6 @@ export {default as GraphHeader} from './GraphHeader';
 export {default as Linechart} from './graph/LineChart';
 export {default as PieChart} from './graph/PieChart';
 export {default as Stacked} from './graph/Stacked';
+export {default as SparkLine} from './graph/SparkLine';
 
 
