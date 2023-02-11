@@ -55,35 +55,34 @@ const App = () => {
             <div className = "fixed md:static bg-main-bg dark:bg-main-bg-black navbar w-full">
               <Navbar />
             </div>
-          </div>
-         
-          <div>
-            <Routes>
-              {/* dashboard */}
-              <Route path="/" element={<Ecommerce />} />
-              <Route path="/ecommerce" element={<Ecommerce />} />
-
-              {/* page */}
-              <Route path="/orders" element={<Orders />} />
-              <Route path="/employees" element={<Employees />} />
-              <Route path="/customers" element={<Customers />} />
-
-              {/*app*/}
-              <Route path="/kanban" element={<Kanban />} />
-              <Route path="/editor" element={<Editor />} />
-              <Route path="/calendar" element={<Calendar />} />
-              <Route path="/color-picker" element={<ColorPicker />} />
-
-              {/* graphs */}
-              <Route path="/line" element={<Line />} />
-              <Route path="/pie" element={<Pie />} />
-              <Route path="/stacked" element={<Stacked />} />
-              <Route path="/financial" element={<Financial />} />
-              
-            </Routes>
-          </div>
           
-          {/* </div>  */}
+            <div>
+              <Routes>
+                {/* dashboard */}
+                <Route path="/" element={<Ecommerce />} />
+                <Route path="/ecommerce" element={<Ecommerce />} />
+
+                {/* page */}
+                <Route path="/orders" element={<Orders />} />
+                <Route path="/employees" element={<Employees />} />
+                <Route path="/customers" element={<Customers />} />
+
+                {/*app*/}
+                <Route path="/kanban" element={<Kanban />} />
+                <Route path="/editor" element={<Editor />} />
+                <Route path="/calendar" element={<Calendar />} />
+                <Route path="/color-picker" element={<ColorPicker />} />
+
+                {/* graphs */}
+                <Route path="/line" element={<Line />} />
+                <Route path="/pie" element={<Pie />} />
+                <Route path="/stacked" element={<Stacked />} />
+                <Route path="/financial" element={<Financial />} />
+                
+              </Routes>
+            </div>
+
+          </div> 
         </div>
       </BrowserRouter> 
     </div>
