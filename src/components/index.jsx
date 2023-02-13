@@ -14,5 +14,7 @@ export {default as Linechart} from './graph/LineChart';
 export {default as PieChart} from './graph/PieChart';
 export {default as Stacked} from './graph/Stacked';
 export {default as SparkLine} from './graph/SparkLine';
+export {default as AreaChart} from './graph/AreaChart';
+
 
 

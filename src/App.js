@@ -5,7 +5,7 @@ import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 import './App.css'
 
 import { Navbar, Footer, Sidebar, ThemeSetting } from './components';
-import { Calendar, ColorPicker, Customers, Ecommerce, Editor, Employees, Kanban, Orders, Financial, Line, Pie, Stacked } from './pages';
+import { Calendar, ColorPicker, Customers, Ecommerce, Editor, Employees, Kanban, Orders, Financial, Line, Pie, Stacked ,Area} from './pages';
 import { useStateContext } from './contexts/contextProvider';
  
 const App = () => {
@@ -80,6 +80,7 @@ const App = () => {
                 <Route path="/pie" element={<Pie />} />
                 <Route path="/stacked" element={<Stacked />} />
                 <Route path="/financial" element={<Financial />} />
+                <Route path="/area" element={<Area />} />
                 
               </Routes>
             </div>

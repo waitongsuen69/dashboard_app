@@ -11,3 +11,4 @@ export {default as Financial} from './Graphs/Financial';
 export {default as Line} from './Graphs/Line';
 export {default as Pie} from './Graphs/Pie';
 export {default as Stacked} from './Graphs/Stacked';
+export {default as Area} from './Graphs/Area';
