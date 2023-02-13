@@ -51,9 +51,12 @@ const Sidebar = () => {
             {item.links.map((link) => (
               <NavLink 
                 to={`/${link.name}`}
-                key={link.name}
+                key={link.name}  
                 className={({ CallMenu }) => CallMenu ? ActiveMenu : NormalMenu }
                 onClick={handleCloseSideBar}
+                style={({isActive})=>({
+                  backgroundColor : isActive? currentColor:''
+                })}
               >
                  {link.icon}
                 <span className="capitalize ">{link.name}</span>
